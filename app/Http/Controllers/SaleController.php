@@ -135,7 +135,6 @@ class SaleController extends Controller
 
     return redirect()->route('profile')->with('success', 'Product updated successfully.');
 }
-
 public function destroyImage($id)
 {
     $image = Image::findOrFail($id);
