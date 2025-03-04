@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('role');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
@@ -35,6 +36,16 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+        DB::table('users')->insert([
+            'name' => 'Example User',
+            'email' => 'user@example.com',
+            'email_verified_at' => now(),
+            'role' => 'User',
+            'password' => Hash::make('password'), // Use a hashed password
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
     }
 
     /**
